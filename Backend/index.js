@@ -1,4 +1,4 @@
-//This index.js will be our express server
+  //This index.js will be our express server
 
 const connectToMongo=require('./db')
 const express = require('express')
