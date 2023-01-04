@@ -17,9 +17,75 @@ const NoteState=(props)=>{
     //         })
     //     },1000)
     // }
+    const notesInitial=[
+        {
+            "_id": "63ad77d456539da30a22c486",
+            "user": "63a6e619c2adee5b47591b93",
+            "title": "Notescape Project",
+            "description": "I'm Building A Full Stack Note Taking App, That will be capable to take notes from the user, User have to login to save their notes",
+            "tag": "MERN Stack Project",
+            "date": "2022-12-29T11:19:48.769Z",
+            "__v": 0
+          },
+        {
+            "_id": "63ad77d456539da30a22c486",
+            "user": "63a6e619c2adee5b47591b93",
+            "title": "Notescape Project",
+            "description": "I'm Building A Full Stack Note Taking App, That will be capable to take notes from the user, User have to login to save their notes",
+            "tag": "MERN Stack Project",
+            "date": "2022-12-29T11:19:48.769Z",
+            "__v": 0
+          },
+        {
+            "_id": "63ad77d456539da30a22c486",
+            "user": "63a6e619c2adee5b47591b93",
+            "title": "Notescape Project",
+            "description": "I'm Building A Full Stack Note Taking App, That will be capable to take notes from the user, User have to login to save their notes",
+            "tag": "MERN Stack Project",
+            "date": "2022-12-29T11:19:48.769Z",
+            "__v": 0
+          },
+        {
+            "_id": "63ad77d456539da30a22c486",
+            "user": "63a6e619c2adee5b47591b93",
+            "title": "Notescape Project",
+            "description": "I'm Building A Full Stack Note Taking App, That will be capable to take notes from the user, User have to login to save their notes",
+            "tag": "MERN Stack Project",
+            "date": "2022-12-29T11:19:48.769Z",
+            "__v": 0
+          },
+        {
+            "_id": "63ad77d456539da30a22c486",
+            "user": "63a6e619c2adee5b47591b93",
+            "title": "Notescape Project",
+            "description": "I'm Building A Full Stack Note Taking App, That will be capable to take notes from the user, User have to login to save their notes",
+            "tag": "MERN Stack Project",
+            "date": "2022-12-29T11:19:48.769Z",
+            "__v": 0
+          },
+        {
+            "_id": "63ad77d456539da30a22c486",
+            "user": "63a6e619c2adee5b47591b93",
+            "title": "Notescape Project",
+            "description": "I'm Building A Full Stack Note Taking App, That will be capable to take notes from the user, User have to login to save their notes",
+            "tag": "MERN Stack Project",
+            "date": "2022-12-29T11:19:48.769Z",
+            "__v": 0
+          },
+        {
+            "_id": "63ad77d456539da30a22c486",
+            "user": "63a6e619c2adee5b47591b93",
+            "title": "Notescape Project",
+            "description": "I'm Building A Full Stack Note Taking App, That will be capable to take notes from the user, User have to login to save their notes",
+            "tag": "MERN Stack Project",
+            "date": "2022-12-29T11:19:48.769Z",
+            "__v": 0
+          }
+    ]
 
+    const[notes,setNotes]=useState(notesInitial);
     return(
-        <NoteContext.Provider value={{}}>                   
+         <NoteContext.Provider value={{notes,setNotes}}>            {/*passing setNotes, so that we can access notes, but at the same time,we can update our notes too.*/}                  
             {props.children}
         </NoteContext.Provider>
     )
