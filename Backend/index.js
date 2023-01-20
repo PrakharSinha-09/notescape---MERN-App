@@ -2,11 +2,13 @@
 
 const connectToMongo=require('./db')
 const express = require('express')
+var cors = require('cors')                           //to fix cors error
 
 connectToMongo()
 const app = express()
 const port = 30000
 
+app.use(cors())
 app.use(express.json())      //this is the middleware, we are using
 
 //Available Routes 

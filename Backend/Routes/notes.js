@@ -106,14 +106,14 @@ router.delete('/deletenote/:id', fetchuser, async (req, res) => {
             res.status(404).send("Not Found!")
         }
     
-        //Allow deletion, if the person owns this note.
+        //Allow deletion, if the person owns this note...hence here's the validation if it does not belong to that person, simply don't allow
         if(note.user.toString()!==req.user.id)              
         {                
-            return res.status(401).send("Not Allowed!")
+            return res.status(401).json("Not Allowed!")
         }
      
         note=await Note.findByIdAndDelete(req.params.id)                          //new:true means if some new content comes in, it will be created 
-        res.send("Note Successfully Deleted!")
+        res.json("Note Successfully Deleted!")
         
     } catch (error) {
         console.error(error.message)

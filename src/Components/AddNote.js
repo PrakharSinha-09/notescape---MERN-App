@@ -6,11 +6,12 @@ const AddNote = () => {
     const {addNote}=context;                         //We just want addNote here.
 
     
-    const [note,setNote]=useState({title:"", description:"", tag:"Default"})
+    const [note,setNote]=useState({title:"", description:"", tag:""})
     
     const handleClick=(e)=>{
         e.preventDefault()
         addNote(note.title,note.description,note.tag)                       //so that while notes get added, it displays title and description which we are giving
+        setNote({title:"", description:"", tag:""})                         //Once we have added the note, clear the fields...and for this, we have given a value attribute in each of the fields there in html(see below)
     }
 
     const onChange=(e)=>{
@@ -23,17 +24,17 @@ const AddNote = () => {
             <form>
                 <div className="mb-3">
                     <label htmlFor="title" className="form-label">Title</label>
-                    <input type="text" className="form-control" id="title" name="title" aria-describedby="emailHelp" onChange={onChange}/>
+                    <input type="text" placeholder="What is The Title Of Your Note 🤔" className="form-control" id="title" name="title" aria-describedby="emailHelp" onChange={onChange} minLength={3} required value={note.title}/>
                 </div>
                 <div className="mb-3">
                     <label htmlFor="description" className="form-label">Description</label>
-                    <input type="text" className="form-control" id="description" name="description" onChange={onChange}/>
+                    <input type="text" placeholder="Write Your Notes Here! 👈" className="form-control" id="description" name="description" onChange={onChange} minLength={3} required value={note.description}/>
                 </div>
-                <div className="mb-3 form-check">
-                    <input type="checkbox" className="form-check-input" id="exampleCheck1" />
-                    <label className="form-check-label" htmlFor="exampleCheck1">Check me out</label>
+                <div className="mb-3">
+                    <label htmlFor="tag" className="form-label">Tag</label>
+                    <input type="text" placeholder="Enter The Type Of Note" className="form-control" id="tag" name="tag" onChange={onChange} minLength={3} required value={note.tag}/>
                 </div>
-                <button type="submit" className="btn btn-primary" onClick={handleClick}>Add Note!</button>
+                <button disabled={note.title.length<3 || note.description.length<3} type="submit" className="btn btn-primary" onClick={handleClick}>Add Note!</button>
             </form>
         </div>
     )
